@@ -37,8 +37,8 @@
         <finalName>${groupId}-${artifactId}-${version}</finalName>
         <plugins>
             <plugin>
-                <groupId>mp-lemon</groupId>
-                <artifactId>mp-lemon-plugin</artifactId>
+                <groupId>com.apuntesdejava.lemon</groupId>
+                <artifactId>jakarta-lemon-project-plugin</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </plugin>
             <plugin>

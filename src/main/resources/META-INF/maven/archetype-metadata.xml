@@ -10,6 +10,14 @@
     </requiredProperty>
   </requiredProperties>
   <fileSets>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory/>
+      <includes>
+        <include>model.json</include>
+      </includes>
+    </fileSet>
+
+
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/main/java</directory>
       <includes>
@@ -35,8 +43,5 @@
         <include>**/*.java</include>
       </includes>
     </fileSet>
-
-
-
   </fileSets>
 </archetype-descriptor>

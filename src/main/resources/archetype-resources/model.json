@@ -1,0 +1,56 @@
+{
+    "datasource": {
+        "db": "mysql",
+        "url": "jdbc:mysql://localhost/test",
+        "username": "test",
+        "password": "test"
+    },
+    "entities": [
+        {
+            "name": "Customer",
+            "fields": {
+                "customerId": {
+                    "type": "Long",
+                    "pk": true,
+                    "generatedValue":"identity"
+                },
+                "firstName": {
+                    "type": "String",
+                    "columnName": "first_name",
+                    "length": 30
+                },
+                "lastName": {
+                    "type": "String",
+                    "columnName": "last_name",
+                    "length": 30
+                },
+                "emailAddress": {
+                    "type": "String",
+                    "columnName": "email_address",
+                    "length": 100
+                }
+            }
+            ,
+            "finders":  
+                    {
+                        "LikeName": {
+                            "query": "select c from Customer c where c.firstName like :firstName",
+                            "parameters": 
+                                    {
+                                        "firstName": "String"
+                                    },
+                            "return": "java.util.List<Customer>"
+                        },
+                        "Email": {
+                            "query": "select c from Customer c where c.emailAddress = :emailAddress",
+                            "parameters":  
+                                    {
+                                        "emailAddress": "String"
+                                    },
+                            "unique": true,
+                            "return": "Customer"
+                        }
+                    }
+        }
+    ]
+}
