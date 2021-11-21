@@ -38,6 +38,20 @@
             <version>${mockito-core.version}</version>
             <scope>test</scope>
         </dependency>
+        <!--
+Jmoordb
+        -->
+        <dependency>
+            <groupId>com.github.avbravo</groupId>
+            <artifactId>jmoordb</artifactId>
+            <version>2.3</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>com.github.avbravo</groupId>
+            <artifactId>jmoordbutils</artifactId>
+            <version>2.11</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>${groupId}-${artifactId}-${version}</finalName>
@@ -68,4 +82,12 @@
         <mockito-core.version>3.12.4</mockito-core.version>
         <junit-jupiter.version>5.7.2</junit-jupiter.version>
     </properties>
+    
+    
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 </project>
