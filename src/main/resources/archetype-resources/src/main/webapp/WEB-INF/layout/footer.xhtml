@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+	<footer class="page-footer" >
+		<div class="footer-copyright">
+			<div class="container">
+                            <span>
+                                <p:outputLabel value="#{msg['application.footercopyright']}"  style="font-size: 18px; font-weight: bold;color: white;" />  <p:outputLabel value="#{msg['application.footertodosderechosreservados']}" style="font-size: 18px; font-weight: bold;color: white;" /> 
+                                
+                                  
+				</span> 
+                            <span>
+                                 
+                                <p:outputLabel value="#{app['label.version']}" style="font-size: 18px; font-weight: bold;color: white;"/>                          <p:outputLabel value= "#{accessController.applicativeVersion.get()}" style="font-size: 18px; font-weight: bold;color: white;"/>
+                            </span>
+				<span class="right"><p:outputLabel value="#{msg['application.footerdevelopers']}" style="font-size: 18px; font-weight: bold;color: white;"/>  <p:outputLabel value="#{msg['application.footerdesarrollador']}" style="font-size: 18px; font-weight: bold;color: white;" /></span>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+</ui:composition>

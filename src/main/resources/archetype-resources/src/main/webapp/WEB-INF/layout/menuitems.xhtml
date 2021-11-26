@@ -1,0 +1,114 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:b="http://bootsfaces.net/ui">
+
+
+
+
+
+    <h:panelGroup  rendered="#{p:ifAnyGranted('JEFE-UNIDAD,COLABORADOR, SUPERVISOR,DEVELOPERS')}">
+
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a
+                        class="collapsible-header waves-effect waves-cyan">
+                        <i class="material-icons">view_carousel</i> <p:outputLabel value="#{msg['menubar.registros']}"/></a>
+                    <div class="collapsible-body">
+
+
+
+                        <p:commandLink rendered="#{p:ifGranted('COLABORADOR')}" value="#{msg['menu.captar']}"   action="#{navigatorController.go('/pages/limpieza/captar.xhtml')}">
+                            <i class="material-icons">bug_report</i>
+                        </p:commandLink>
+
+                        <p:commandLink rendered="#{p:ifGranted('SUPERVISOR')}" value="#{msg['menu.supervisar']}"   action="#{navigatorController.go('/pages/supervisor/supervisar.xhtml')}">
+                            <i class="material-icons">lightbulb_outline</i>
+                        </p:commandLink>
+                        <p:commandLink rendered="#{p:ifGranted('JEFE-UNIDAD')}" value="#{msg['menu.configurar']}"   action="#{navigatorController.go('/pages/configurar/configurar.xhtml')}">
+                            <i class="material-icons">transfer_within_a_station</i>
+                        </p:commandLink>
+
+
+
+
+                        <p:commandLink  rendered="#{p:ifGranted('JEFE-UNIDAD')}" value="#{msg['menu.area']}"   action="#{navigatorController.go('/pages/area/area.xhtml')}"  >
+                            <i class="material-icons">business</i>
+                        </p:commandLink>
+                       
+                        <p:commandLink  rendered="#{p:ifGranted('DEVELOPERS')}" value="#{msg['menu.emailconfiguracion']}"   action="#{navigatorController.go('/pages/commons/emailconfiguration.xhtml')}"  >
+                            <i class="material-icons">email</i>
+                        </p:commandLink>
+
+
+
+                    </div></li>
+            </ul>
+        </li>
+
+
+    </h:panelGroup>
+    <h:panelGroup  rendered="#{p:ifAnyGranted('JEFE-UNIDAD, SUPERVISOR, AUTORIDAD')}">
+
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a
+                        class="collapsible-header waves-effect waves-cyan">
+                        <i class="material-icons">view_carousel</i> <p:outputLabel value="#{msg['menubar.reportes']}"/></a>
+                    <div class="collapsible-body">
+
+                        <p:commandLink  value="#{msg['menu.seguimiento']}"   action="#{navigatorController.go('/pages/seguimiento/seguimiento.xhtml')}">
+                            <i class="material-icons">assignment</i>
+                        </p:commandLink>
+                        <p:commandLink  value="#{msg['menu.resumen']}"   action="#{navigatorController.go('/pages/resumen/resumen.xhtml')}">
+                            <i class="material-icons">border_all</i>
+                        </p:commandLink>
+
+
+
+
+
+                    </div></li>
+            </ul>
+        </li>
+
+
+    </h:panelGroup>
+
+<h:panelGroup  rendered="#{p:ifGranted('DEVELOPERS')}">
+
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a
+                        class="collapsible-header waves-effect waves-cyan">
+                        <i class="material-icons">view_carousel</i> <p:outputLabel value="#{msg['menubar.registros']}"/></a>
+                    <div class="collapsible-body">
+
+
+
+                        
+                        <p:commandLink  value="#{app['menu.topsearch']}"   action="#{navigatorController.go('/pages/commons/topsearch.xhtml')}"  >
+                            <i class="material-icons">layers_clear</i>
+                        </p:commandLink>
+
+                       
+
+                    </div></li>
+            </ul>
+        </li>
+         
+    
+    </h:panelGroup>
+
+
+
+
+
+
+
+</ui:composition>

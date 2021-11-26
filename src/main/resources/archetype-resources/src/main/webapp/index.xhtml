@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/layout/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:jmoordbjsf="http://jmoordbjsf.com/taglib">
+
+    <ui:define name="titulo">Jakarta-Lemon</ui:define>
+
+    <ui:define name="contenido">
+
+
+
+        <p:messages  closable="true" >
+            <p:autoUpdate />
+        </p:messages>
+        <p:growl  />
+
+
+
+        <!-- START CONTENT -->
+        <section id="content">
+
+
+
+
+            <!--start container-->
+            <div class="container">
+                <div class="section">
+                    <h5 class="breadcrumbs-title"><p:outputLabel value="#{msg['application.title']}" styleClass="label-applicationtitle" /></h5>
+                    <p class="caption">
+                        <p:outputLabel value="#{msg['application.welcome']}" styleClass="label-welcome"/>
+                    </p>
+
+                    <!--<div class="divider"></div>-->
+
+
+
+
+
+
+                    <div id="contact-page" class="card">
+                        <h:form id="hidden" style="display:none" rendered="#{p:ifGranted('COLABORADOR')}" >
+                            <h:commandLink id="link"  action="#{accessController.redireccionar()}"/>
+                        </h:form>
+
+
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <div >
+                              
+                                <br /><br />
+                  
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="card-content">
+
+
+                            <h:form rendered="#{!accessController.loggedIn}">
+                                <div id="error-page">
+
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="browser-window">
+                                                <div class="top-bar">
+                                                    <div class="circles">
+                                                        <div id="close-circle" class="circle"></div>
+                                                        <div id="minimize-circle" class="circle"></div>
+                                                        <div id="maximize-circle" class="circle"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="row">
+                                                        <div id="site-layout-example-top" class="col s12">
+                                                            <p class="flat-text-logo center white-text caption-uppercase">Internal
+                                                                server error</p>
+                                                        </div>
+                                                        <div id="site-layout-example-right" class="col s12 m12 l12">
+                                                            <div class="row center">
+                                                                <h4 class="text-long-shadow col s12">403</h4>
+                                                            </div>
+                                                            <div class="row center">
+                                                                <p class="center white-text col s12">Something has gone
+                                                                    seriously wrong. Please try later.</p>
+                                                                <p class="center s12">
+                                                                    <button onclick="goBack()"
+                                                                            class="btn waves-effect waves-light">Back</button>
+                                                                </p>
+                                                                <a href="index-2.html" class="btn waves-effect waves-light">Homepage</a>
+                                                                <a href="login_1.xhtml" class="btn waves-effect waves-light">
+                                                                    <p:outputLabel value="#{app['button.login']}"/>
+                                                                </a>
+                                                                <p></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="row">
+                                      <div id="site-layout-example-top" class="col s12">
+                                          <p class="flat-text-logo center white-text caption-uppercase">
+                                              <p:outputLabel value="#{app['title.accesodenegado']}"/>
+                                          </p>
+                                      </div>
+                                      <div id="site-layout-example-right" class="col s12 m12 l12">
+                                          <div class="row center">
+                                              <h2 class="text-long-shadow col s12">
+                                                  <p:outputLabel value="#{app['title.accesodenegado']}"/>
+                                              </h2>
+                                          </div>
+                                          <div class="row center">
+                                              <p class="center blue-text col s12">
+                                                  <p:outputLabel value="#{app['label.notieneprivilegios']}"/>
+                                              </p>
+                                              <p class="center s12">
+                                                  <a href="login_1.xhtml" class="btn waves-effect waves-light">
+                                                      <p:outputLabel value="#{app['button.login']}"/>
+                                                  </a>
+                                              </p>
+              
+                                              <p></p>
+                                          </div>
+                                      </div>
+                                  </div> -->
+                            </h:form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--end container-->
+
+
+        </section>
+        <!-- END CONTENT -->
+
+
+
+
+        <!-- google map api -->
+
+
+        <!--google map-->
+        <!-- ================================================
+Scripts
+================================================ -->
+        <jmoordbjsf:materialized-js />
+
+
+        <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById('hidden:link').onclick();
+            };
+        </script>
+
+    </ui:define>
+
+</ui:composition>

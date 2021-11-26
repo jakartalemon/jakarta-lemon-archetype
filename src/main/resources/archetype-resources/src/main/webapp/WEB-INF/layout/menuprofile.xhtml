@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:b="http://bootsfaces.net/ui">
+
+
+    <p:menuButton rendered="#{accessController.loggedIn}" value="#{accessController.user.name}" class="dropdown-content" styleClass="pmenuButton">
+        <p:menuitem value="" action="#{navigatorController.go('/pages/commons/perfil.xhtml')}" update="growltemplate"  >
+            <i class="material-icons">face</i>#{app['menubutton.profile']}
+        </p:menuitem>
+        <p:menuitem value=""  rendered="#{p:ifGranted('DEVELOPERS')}" action="#{navigatorController.go('/pages/commons/configuracion.xhtml')}" update="growltemplate"  >
+            <i class="material-icons">settings</i>#{app['menubutton.settings']}
+
+        </p:menuitem>
+        <p:menuitem value="" action="#{navigatorController.go('/pages/commons/ayuda.xhtml')}"  >
+            <i class="material-icons">live_help</i> #{app['menubutton.help']}
+        </p:menuitem>
+
+
+        <p:separator />
+        <p:menuitem value="" action="#{accessController.logout()}" >
+            <i class="material-icons">lock</i>#{app['menubutton.exit']}
+        </p:menuitem>
+    </p:menuButton>
+
+
+
+</ui:composition>

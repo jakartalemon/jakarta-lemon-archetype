@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+    <composite:interface >
+        <composite:attribute name="action" />
+    </composite:interface>
+    <composite:implementation>
+        <h:panelGroup id="dialogoalerExpired">
+            <p:dialog header="Basic Dialog" 
+                      widgetVar="alertExpire" 
+                      onShow="startIdleMonitor()">
+                <h:outputText value="Your browser session is expiring in " />
+                <h:outputText id="dialog-countdown" style="font-weight: bold;"/>
+                <pe:timer 
+                    timeout="#{accessController.segundosInactividad/1000}"
+                    singleRun="false"
+
+                    style="color: red;"/>
+                <h:outputText value=" second." />
+                <br/>
+                <h:outputText value="Do you want to continue your session?" />
+                <h:form>
+                    <p:commandButton value="Yes" 
+                                     process="@this" 
+                                     update="@all"
+                                     onclick="stopCount()"/>
+                    <p:commandButton value="No" 
+                                     process="@this" 
+                                     update="@all"
+                                     action="#{accessController.logout}"/>
+                    <p:remoteCommand name="logout" action="#{accessController.logout}" />
+                </h:form>
+
+            </p:dialog>
+        </h:panelGroup>        
+    </composite:implementation>
+</html>

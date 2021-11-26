@@ -1,0 +1,152 @@
+.tamanofull{
+    width: 100%;                  
+}            
+.tamanofull .ui-selectonemenu-trigger.ui-state-default.ui-corner-right{
+    display: none;
+}
+.flexcenter{ 
+    display: flex;
+    justify-content: center;
+}
+a.punterom{
+    cursor: pointer;
+}
+
+
+a.timeminutoshoras.lineabajo i.material-icons{
+    border-bottom: 5px solid #880e4f;
+}
+.ui-selectonemenu.combostiempo > label.ui-selectonemenu-label {    
+    color: #ffffff;
+}
+
+
+.waves-effect.waves-light.btn.coloraplicacion{
+    background-color: #880e4f;
+    color: #ffffff;
+}
+
+.inputtiempo{
+    max-width: 7em;
+}
+
+@media only screen and (max-width: 730px){
+    .botoncancelar{
+        /*font-size: 90%;*/
+        font-size: 3vw;
+    }  
+}
+@media only screen and (max-width: 1199px){
+    .botoncancelar{
+        font-size: 90%;
+        /*        font-size: 3vw;*/
+    }  
+}
+@media only screen and (min-width: 1200px){
+    .botoncancelar{
+        font-size: 92%;
+    }  
+}
+
+@media only screen and (max-width: 254px){
+    .tamanofull > label,
+    ul[id*=":selectmenutiempo"] > li{
+        font-size: 8vw;
+    } 
+
+
+    /*                .tamanofull option{
+                        font-size: 8vw;
+                    }*/
+}
+
+@media only screen and (min-width: 325px) {
+    .tamanofull > label {
+        font-size: calc(21px + (30 - 21) * ((100vw - 325px)/(449 - 325)));
+    } 
+    ul[id*=":selectmenutiempo"] > li                           
+    {
+        font-size: calc(21px + (30 - 21) * ((100vw - 325px)/(449 - 325)));
+    }
+
+    /*                .tamanofull option{
+                        font-size: 8vw;
+                    }*/
+}
+@media only screen and (min-width: 450px) {
+
+    .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ui-hidden-container.dialogoajustable{
+        max-width: 440px !important;
+        min-width: 430px !important;
+    }
+
+    .waves-effect.waves-light.btn.botonguardar,
+    .waves-effect.waves-light.btn.botoncancelar {
+        padding-left: 10px;
+        width: 100%
+    }
+
+    .tamanofull > label {
+        font-size: calc(30px + (33 - 30) * ((100vw - 450px)/(599 - 450)));
+    } 
+    ul[id*=":selectmenutiempo"] > li                           
+    {
+        font-size: calc(30px + (33 - 30) * ((100vw - 450px)/(599 - 450)));
+    }
+
+    /*                .tamanofull option{
+                        font-size: 8vw;
+                    }*/
+}
+
+@media only screen and (max-width: 599px){
+
+    
+    .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ui-hidden-container.dialogoajustable.ui-draggable{
+        width: 100% !important;
+    } 
+    a.timeminutoshoras i.material-icons{
+        font-size: 6em;
+    }
+    a.timeampm i.material-icons{
+        font-size: 6em;
+    }
+}
+@media only screen and (min-width: 600px){
+    .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ui-hidden-container.dialogoajustable.ui-draggable{
+        max-width: 470px !important;
+        min-width: 400px !important;
+    }
+
+    .tamanofull > label {
+        font-size: 2.3em;
+    } 
+    ul[id*=":selectmenutiempo"] > li                           
+    {
+        font-size: 2.3em;
+    }
+
+    a.timeminutoshoras i.material-icons{
+        font-size: 55px;
+    }
+
+    a.timeampm i.material-icons{
+        font-size: 55px;
+    }
+
+    .waves-effect.waves-light.btn.botonguardar,
+    .waves-effect.waves-light.btn.botoncancelar {
+        padding-left: 10px;
+        width: 100%
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                          supported by Chrome, Edge, Opera and Firefox */
+}
