@@ -91,10 +91,10 @@
                                      text-overflow: ellipsis;">
 
 
-                                    <p:outputLabel class="titulomovil" value="#{accessController.user.name}-#{accessController.profile.role.role}" style="font-size: 17px;
+                                    <p:outputLabel class="titulomovil" value="#{accessController.username}" style="font-size: 17px;
                                                    font-family: Roboto, sans-serif;
                                                    color: white; " /> 
-                          <!--                            <p:outputLabel class="titulomovil" value="#{accessController.user.name} #{accessController.profile.role.role}" style="font-size: 17px;
+                          <!--                            <p:outputLabel class="titulomovil" value="#{accessController.username}" style="font-size: 17px;
                                                           font-family: Roboto, sans-serif;
                                                           color: white; float: right; margin-right: 2em;" /> -->
                                 </div>
@@ -115,7 +115,7 @@
                             <!-- Menu Layout - Desenvolvedor  -->
                             <h:form id="formtemplatemenu">
                                 <p:remoteCommand name="ejecutarbean" action="#{accessController.inicializa()}" oncomplete="redireccionar()" />
-                                <o:socket channel="notification" onmessage="webSocketListener" />    
+                                
                                 <ui:include src="/WEB-INF/layout/menu.xhtml" />
 
                             </h:form>
@@ -148,9 +148,9 @@
                                 <div class="row">
                                     <div class="col col s4 m4 l4">
 
-                                        <h:graphicImage library="jmoordbjsf" name="iconos/hombre48.png" rendered="#{accessController.user.sex eq 'Masculino'}"
+                                        <h:graphicImage library="jmoordbjsf" name="iconos/hombre48.png" rendered="#{accessController.sex eq 'Masculino'}"
                                                         styleClass="circle responsive-img valign profile-image" alt="" />
-                                        <h:graphicImage library="jmoordbjsf" name="iconos/mujer48.png" rendered="#{accessController.user.sex eq 'Femenino'}"
+                                        <h:graphicImage library="jmoordbjsf" name="iconos/mujer48.png" rendered="#{accessController.sex eq 'Femenino'}"
                                                         styleClass="circle responsive-img valign profile-image" alt="" />
                                     </div>
                                     <div class="col col s8 m8 l8">
@@ -166,13 +166,6 @@
 
                             </li>
                             <ui:include src="/WEB-INF/layout/menuitems.xhtml" />
-                               <p:commandLink                                                                                                     
-                                action="#{accessController.logout()}" 
-                                class="logout_bottom_button"
-                                >
-                                <i class="material-icons">power_settings_new</i>
-                                <h:outputText value=" #{msg['login.salir']}" />
-                            </p:commandLink>
                         </h:form>
                     </ul>
 

@@ -20,9 +20,9 @@
 
                 <div class="row">
                     <div class="col col s4 m4 l4">
-                        <h:graphicImage library="jmoordbjsf" name="iconos/hombre48.png" rendered="#{accessController.user.sex eq 'Masculino'}"
+                        <h:graphicImage library="jmoordbjsf" name="iconos/hombre48.png" rendered="#{accessController.sex eq 'Masculino'}"
                                         styleClass="circle responsive-img valign profile-image" alt="" />
-                        <h:graphicImage library="jmoordbjsf" name="iconos/mujer48.png" rendered="#{accessController.user.sex eq 'Femenino'}"
+                        <h:graphicImage library="jmoordbjsf" name="iconos/mujer48.png" rendered="#{accessController.sex eq 'Femenino'}"
                                         styleClass="circle responsive-img valign profile-image" alt="" />
                     </div>
                     <div class="col col s8 m8 l8">
@@ -44,7 +44,7 @@
                         </p:commandLink>
                     </div>
                         <div class="col col s10 m10 l10">
-                        <p:outputLabel value="#{accessController.profile.role.role}" style="line-height: 2em; color: white; " />
+                        <p:outputLabel value="Bienvenido" style="line-height: 2em; color: white; " />
                     </div>
                 </div>
 

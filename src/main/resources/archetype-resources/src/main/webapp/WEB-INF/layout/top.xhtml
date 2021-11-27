@@ -22,7 +22,8 @@
 
                         <li><h1 class="logo-wrapper">
                                 <a href="index.xhtml" class="brand-logo darken-1"> 
-                                    <h:graphicImage  library="img" name="logo.png"  alt="materialize logo" />
+                                 <!--<h:graphicImage  library="img" name="logo.png"  alt="" />-->
+                                    <h:graphicImage library="jmoordbjsf" name="iconos/jklemon.png"    styleClass="circle responsive-img valign profile-image" alt="" />
                                 </a> 
                                 <span class="logo-text"><p:outputLabel value="#{msg['application.shorttitle']}"/></span>
                             </h1>
@@ -116,16 +117,7 @@
                                              />
                         </h:form>
 
-                        <h:form id="formWebsocket">
-                            <p:remoteCommand 
-                                name="remoteCommandTop" 
-                                update=":growltemplate,:growlWebsocket,:formtemplatemenu:commandLinkNotificationsMenuProfile"
-                                actionListener="#{accessController.actionWebSocket()}" 
-                                process="@this">
-                            </p:remoteCommand>
-          
-                        </h:form>
-
+                       
 
                     </ul>
                     <!-- translation-button -->
