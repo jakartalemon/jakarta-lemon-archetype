@@ -1,0 +1,141 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:extension="http://xmlns.jcp.org/jsf/composite/extension">
+
+
+
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="navbar-color">
+                <div class="nav-wrapper">
+                    <ul class="left">
+
+                        <li><h1 class="logo-wrapper">
+                                <a href="index.xhtml" class="brand-logo darken-1"> 
+                                    <h:graphicImage  library="img" name="logo.png"  alt="materialize logo" />
+                                </a> 
+                                <span class="logo-text"><p:outputLabel value="#{msg['application.shorttitle']}"/></span>
+                            </h1>
+                        </li>
+
+                    </ul>
+
+
+
+                    <div class="header-search-wrapper hide-on-med-and-down">
+                            <i class="pi pi-search-plus" style="font-size: 1rem"></i>
+                        
+                        <h:form id="formtopsearch">
+                            <p:remoteCommand name="remoteCommandTopSearch"
+                                             action="#{topController.search()}"
+                                             process="@this top_text_search"
+                                             update="growltemplate"/>
+
+                            <p:inputText id="top_text_search" class="header-search-input z-depth-2" 
+                                         value="#{topController.text}" placeholder="#{app['placeholder.topsearch']}"
+                                         onkeydown="if (event.keyCode === 13) {
+                                                     remoteCommandTopSearch();
+                                                     return false;
+                                                 }"
+                                         >
+
+                            </p:inputText>
+
+                        </h:form>
+                    </div>
+
+
+
+
+
+                    <ul class="right hide-on-med-and-down">
+
+                        <h:form id="formtop" rendered="#{accessController.loggedIn}">
+
+                            <h:graphicImage library="jmoordbjsf" name="#{jmoordbLanguages.icono}" />
+
+                            <p:menuButton value=""   class="dropdown-content" styleClass="pmenuButton">
+
+                                <p:menuitem value="#{app['languague.portugues']}" action="#{jmoordbLanguages.portugueseAction}"
+                                            update="growltemplate, bodytemplate"  >
+                                    <h:graphicImage library="jmoordbjsf" name="banderas/brasil.png" />
+                                    <span class="language-select">
+                                        <p:outputLabel value="#{app['languague.portugues']}"/>
+                                    </span>
+                                </p:menuitem>
+
+                                <p:menuitem value=""  action="#{jmoordbLanguages.englishAction}" update="growltemplate, bodytemplate"  >
+                                    <h:graphicImage library="jmoordbjsf" name="banderas/estadosunidos.png" />
+                                    <span class="language-select">
+                                        <p:outputLabel  value="#{app['languague.ingles']}" />
+                                    </span>
+                                </p:menuitem>
+
+                                <p:menuitem value=""  action="#{jmoordbLanguages.spanishSpainAction}" update="growltemplate, bodytemplate"  >
+                                    <h:graphicImage library="jmoordbjsf" name="banderas/espana.png" />
+                                    <span class="language-select">
+                                        <p:outputLabel   value="#{app['languague.spanishSpain']}" />
+                                    </span>
+
+                                </p:menuitem>
+                                <p:separator />
+                                <p:menuitem action="#{jmoordbLanguages.spanishAction}" update="growltemplate, bodytemplate">
+                                    <h:graphicImage library="jmoordbjsf" name="banderas/panama.png" />
+                                    <span class="language-select">
+                                        <p:outputLabel value="#{app['languague.spanish']}" />
+                                    </span>
+                                </p:menuitem>
+
+                                <p:menuitem action="#{jmoordbLanguages.francesAction}" update="growltemplate, bodytemplate">
+                                    <h:graphicImage library="jmoordbjsf" name="banderas/francia.png" />
+                                    <span class="language-select"><p:outputLabel
+                                            value="#{app['languague.frances']}" /></span>
+                                </p:menuitem>
+
+                                <p:menuitem action="#{jmoordbLanguages.alemaniaAction}" update="growltemplate, bodytemplate">
+                                    <h:graphicImage library="jmoordbjsf" name="banderas/alemania.png" />
+                                    <span class="language-select"><p:outputLabel  value="#{app['languague.alemania']}" /></span>
+                                </p:menuitem>
+
+
+                            </p:menuButton>
+
+                        </h:form>
+
+                        <h:form id="formWebsocket">
+                            <p:remoteCommand 
+                                name="remoteCommandTop" 
+                                update=":growltemplate,:growlWebsocket,:formtemplatemenu:commandLinkNotificationsMenuProfile"
+                                actionListener="#{accessController.actionWebSocket()}" 
+                                process="@this">
+                            </p:remoteCommand>
+                            <p:outputLabel value="#{accessController.segundosInactividad}"/>
+            <p:idleMonitor timeout="#{accessController.segundosInactividad}"
+                                           onidle="PF('alertExpire').show();">
+                           
+                            </p:idleMonitor>
+                            <extension:alertExpired/>
+                        </h:form>
+
+
+                    </ul>
+                    <!-- translation-button -->
+
+
+
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+
+
+
+</ui:composition>

@@ -36,6 +36,63 @@
         <include>**/*.xml</include>
       </includes>
     </fileSet>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.xhtml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp/pages</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp/resources</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp/resources/css</directory>
+      <includes>
+        <include>**/*.css</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp/resources/extension</directory>
+      <includes>
+        <include>**/*.*</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp/resources/img</directory>
+      <includes>
+        <include>**/*.*</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp/resources/script</directory>
+      <includes>
+        <include>**/*.*</include>
+      </includes>
+    </fileSet>
+    
+    
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp/WEB-INF/layout</directory>
+      <includes>
+        <include>**/*.*</include>
+      </includes>
+    </fileSet>
+    
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/resources/com/properties</directory>
+      <includes>
+        <include>**/*.*</include>
+      </includes>
+    </fileSet>
     <!-- TEST -->
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/test/java</directory>

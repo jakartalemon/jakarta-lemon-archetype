@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jmoordbjsf="http://jmoordbjsf.com/taglib"
+      xmlns:extension="http://xmlns.jcp.org/jsf/composite/extension"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:of="http://omnifaces.org/functions"
+      >
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="description"
+              content=" " />
+        <meta name="keywords"
+              content="javaserver faces" />
+        
+          <meta name="referrer" content="no-referrer"/>
+         <meta name="referrer" content="strict-origin-when-cross-origin"/>
+         
+        <title><ui:insert name="titulo">Limpieza</ui:insert></title>
+
+        <jmoordbjsf:materialized-css />
+        <f:facet name="first">
+            <f:view locale="#{jmoordbLanguajes.locale !=null?jmoordbLanguajes.locale:'es'}"></f:view>
+            <f:loadBundle basename="com.properties.messages" var="msg" />
+            <f:loadBundle basename="com.jmoordbutils.properties.application" var="app" />
+
+        </f:facet>
+<!-- fontAwesome -->
+
+<!--    <h:outputStylesheet library="webjars" name="font-awesome/5.15.3/css/all-jsf.css" />
+<h:outputStylesheet library="webjars" name="font-awesome/5.15.3/css/v4-shims.min-jsf.css" />-->
+        
+        <!-- CORE CSS-->
+        <h:outputStylesheet library="css" name="personalized.css" />
+
+
+        <!--<h:outputStylesheet library="css" name="hamburger.css" />-->
+
+        <jmoordbjsf:hamburger-css />
+        <jmoordbjsf:hamburger-js />
+
+
+        <!--<h:outputScript library="css" name="hamburger.js" />-->
+        <!--<h:outputStylesheet library="css" name="extras.css"/>-->
+        <!--<meta id="metarefresh" http-equiv="refresh" content="#{facesContext.externalContext.sessionMaxInactiveInterval};url=#{request.contextPath}/#{accessController.expired()}"/>-->
+
+        <h:outputScript name="scripts/metodos.js" target="body" />
+        <script type="text/javascript">
+            function webSocketListener(message, channel, event) {
+                //     alert('se activo el websocketListener')
+                //  console.log(message);
+                remoteCommandTop();
+            }
+        </script>  
+
+    
+    </h:head>
+
+    <h:body id="bodytemplate" >
+        <p:ajaxStatus onsuccess="limpiartiempo()" />
+        <!--<h:body id="bodytemplate" class="darken-1">-->
+        <!--    <h:body id="bodytemplate" class="cyan darken-2">-->
+        <f:view contentType="text/html"> 
+
+            <jmoordbjsf:cssthemepinkdark4/>
+            <!--<jmoordbjsf:cssthemegreydarken1/>-->
+            <p:growl id="growltemplate"/>
+            <p:growl id="growlWebsocket" for="growlWebsocket" showDetail="true" sticky="true"  
+                     keepAlive="true"/>
+
+            <h:panelGroup rendered="#{accessController.loggedIn}">
+                <div class="wrapper">
+
+                    <!-- Top do Layout -->
+                    <ui:include src="/WEB-INF/layout/top.xhtml" />
+
+                    <!-- Top Navigation Menu -->
+                    <div class="topnav hide-on-large-only" >
+                        <a class="active"> 
+                            <div style="width: calc(100% - 2em);">
+
+                                <div style="overflow: hidden;
+                                     text-overflow: ellipsis;">
+
+
+                                    <p:outputLabel class="titulomovil" value="#{accessController.username}" style="font-size: 17px;
+                                                   font-family: Roboto, sans-serif;
+                                                   color: white; " /> 
+                          <!--                            <p:outputLabel class="titulomovil" value="#{accessController.username}" style="font-size: 17px;
+                                                          font-family: Roboto, sans-serif;
+                                                          color: white; float: right; margin-right: 2em;" /> -->
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                        <a href="javascript:void(0);" class="icon" style="height: 100%" onclick="mostrar()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                    <!-- Top Navigation Menu -->
+                    <!-- START MAIN -->
+                    <div id="main">
+                        <!-- START WRAPPER -->
+                        <div class="wrapper">
+                            <!-- Menu Layout - Desenvolvedor  -->
+                            <h:form id="formtemplatemenu">
+                                <p:remoteCommand name="ejecutarbean" action="#{accessController.inicializa()}" oncomplete="redireccionar()" />
+                                
+                                <ui:include src="/WEB-INF/layout/menu.xhtml" />
+
+                            </h:form>
+
+                            <div id="conteudo">
+                                <ui:insert name="contenido" />
+                            </div>
+
+                            <!--<ui:include src="/WEB-INF/layout/favorito/favoritos.xhtml" />-->
+
+                        </div>
+                        <!-- END WRAPPER -->
+
+                    </div>
+                    <!-- END MAIN -->
+                    <ul class="side-nav menucelularcss" id="menucelular">
+                        <h:form>
+                            <p:ajaxStatus onstart="PF('jmoordbjsfStatusDialog').show()" onsuccess="PF('jmoordbjsfStatusDialog').hide()" />
+                            <p:dialog widgetVar="jmoordbjsfStatusDialog" modal="true" draggable="false" 
+                                      closable="false" resizable="false" showHeader="false">
+                                <p:outputLabel value="Procesando...."/>
+                                <i class="pi pi-spin pi-spinner" style="font-size: 2em"></i>
+                            </p:dialog>
+
+                            <li class="user-details left-menu">
+                                <!--<li class="user-details cyan darken-2">-->
+
+
+
+                                <div class="row">
+                                    <div class="col col s4 m4 l4">
+
+                                        <h:graphicImage library="jmoordbjsf" name="iconos/hombre48.png" rendered="#{accessController.sex eq 'Masculino'}"
+                                                        styleClass="circle responsive-img valign profile-image" alt="" />
+                                        <h:graphicImage library="jmoordbjsf" name="iconos/mujer48.png" rendered="#{accessController.sex eq 'Femenino'}"
+                                                        styleClass="circle responsive-img valign profile-image" alt="" />
+                                    </div>
+                                    <div class="col col s8 m8 l8">
+
+                                        <ui:include src="/WEB-INF/layout/menuprofile.xhtml" />
+
+
+                                        <!--<p class="user-roal">Administrator</p>-->
+                                    </div>
+                                </div>
+
+
+
+                            </li>
+                            <ui:include src="/WEB-INF/layout/menuitems.xhtml" />
+                        </h:form>
+                    </ul>
+
+
+                    <div class="push"></div>
+                </div>
+
+
+                <!-- footer  Layout -->
+                <footer class="footer">
+                    <ui:include src="/WEB-INF/layout/footer.xhtml" />
+                </footer>
+
+            </h:panelGroup>
+
+
+            <h:form rendered="#{!accessController.loggedIn}">
+
+                <extension:accesodenegado />
+
+            </h:form>
+
+
+
+            <jmoordbjsf:materialized-js />
+
+
+        </f:view>
+        <div id="paneloculto" class="drag-target hide-on-large-only" 
+             style="-webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 50%; right: -250px;" onclick="mostrar()" ></div>
+    </h:body>
+
+    <script>
+        var redirectToExpired = function () {
+//            console.log("redireccionando ");
+//            alert('Hola');
+
+            ejecutarbean();
+
+        };
+//        console.log("Hi ");
+//                var expireTimeMillis = 355000;
+//        var expireTimeMillis = #{accessController.getMaxInactiveInterval()} * 1000;
+        var expireTimeMillis = #{accessController.getMaxInactiveInterval()} * 1000 - 15000;
+//        console.log(expireTimeMillis);
+//                var expireTimeMillis = 1850000;
+
+        window.redirectOnExpire = setTimeout(redirectToExpired, expireTimeMillis);
+
+        function limpiartiempo() {
+//                    alert('mmmmm');
+//                    console.log("Limpiando tiempo");
+            clearTimeout(window.redirectOnExpire);
+            window.redirectOnExpire = setTimeout(redirectToExpired, expireTimeMillis);
+
+        }
+        ;
+
+        function redireccionar() {
+//            console.log('entrando metodo redireccionar');
+            window.location = '#{request.contextPath}/#{accessController.expired()}';
+                }
+                ;
+
+//               
+    </script>
+    
+    
+    
+     <script type="text/javascript">
+                var TIME = 120; // in seconds
+                var countTimer = TIME;
+                var processTimer;
+                var timer_is_on = 0;
+
+                var countDownDiv = "dialog-countdown";
+                var txtCountDown = null;
+                if (!txtCountDown)
+                    txtCountDown = document.getElementById(countDownDiv);
+
+                function startIdleMonitor() {
+                    countTimer = TIME;
+                    txtCountDown.innerHTML = countTimer;
+                    doTimer();
+                }
+                function timedCount() {
+                    txtCountDown.innerHTML = countTimer;
+                    if (countTimer == 0) {
+                        stopCount();
+                        logout();
+                        return;
+                    }
+                    countTimer = countTimer - 1;
+                    processTimer = setTimeout("timedCount()", 1000);
+                }
+                function doTimer() {
+                    if (!timer_is_on) {
+                        timer_is_on = 1;
+                        timedCount();
+                    }
+                }
+                function stopCount() {
+                    clearTimeout(processTimer);
+                    timer_is_on = 0;
+                }
+            </script>
+
+</html>
