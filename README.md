@@ -3,5 +3,5 @@
 ## Creación
 Iteractiva
 ```
-mvn -DarchetypeGroupId=com.apuntesdejava.lemon -DarchetypeArtifactId=jakarta-lemon-project-archetype org.apache.maven.plugins:maven-archetype-plugin:3.1.2:generate
+mvn -DarchetypeGroupId=com.apuntesdejava.lemon -DarchetypeArtifactId=jakarta-project-archetype org.apache.maven.plugins:maven-archetype-plugin:3.1.2:generate
 ```

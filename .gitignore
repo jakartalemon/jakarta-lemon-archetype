@@ -54,3 +54,4 @@ Thumbs.db
 /nb-configuration.xml
 **/.settings
 **/.project
+.vscode/settings.json
