@@ -14,6 +14,42 @@
     },
     "entities": [
         {
+            "name":"ProductCategory",
+            "tableName":"prod_cat",
+            "fields":{
+                "categoryId":{
+                    "type":"Long",
+                    "pk":true,
+                    "generatedValue":"identity"
+                },
+                "category":{
+                    "type":"String",
+                    "length":50,
+                    "columnName":"category_name"
+                }                
+            }
+        },
+        {
+            "name":"Product",
+            "fields":{
+                "productId": {
+                    "type": "Long",
+                    "pk": true,
+                    "generatedValue":"identity",
+                    "columnName":"product_id"
+                },
+                "name":{
+                    "type":"String",
+                    "columnName":"product_name"
+                },
+                "category":{
+                    "type":"ProductCategory",
+                    "join":"ManyToOne",
+                    "columnName":"category_id"
+                }
+            }
+        },
+        {
             "name": "Customer",
             "fields": {
                 "customerId": {
