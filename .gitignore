@@ -55,3 +55,5 @@ Thumbs.db
 **/.settings
 **/.project
 .vscode/settings.json
+.gradle
+/.vscode/
