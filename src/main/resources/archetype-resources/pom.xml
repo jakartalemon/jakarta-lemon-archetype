@@ -23,7 +23,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>1.18.24</version>
         </dependency>
 
         <dependency>
@@ -49,7 +49,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.9.0</version>
+                <version>3.10.1</version>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -63,9 +63,9 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jakarta.jakartaee-api.version>9.0.0</jakarta.jakartaee-api.version>
-        <microprofile.version>4.0.1</microprofile.version>
-        <mockito-core.version>3.12.4</mockito-core.version>
-        <junit-jupiter.version>5.7.2</junit-jupiter.version>
+        <jakarta.jakartaee-api.version>9.1.0</jakarta.jakartaee-api.version>
+        <microprofile.version>4.1</microprofile.version>
+        <mockito-core.version>4.3.1</mockito-core.version>
+        <junit-jupiter.version>5.8.2</junit-jupiter.version>
     </properties>
 </project>
