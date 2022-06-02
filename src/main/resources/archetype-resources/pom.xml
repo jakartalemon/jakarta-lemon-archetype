@@ -40,7 +40,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>${groupId}-${artifactId}-${version}</finalName>
+        <finalName>${artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>com.apuntesdejava.lemon</groupId>
