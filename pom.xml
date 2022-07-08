@@ -24,11 +24,17 @@
     </licenses>
     <developers>
         <developer>
-            <name>Diego Silva L</name>
+            <name>Diego Enrique Silva Limaco</name>
             <email>diego.silva@apuntesdejava.com</email>
             <organization>Apuntes de Java</organization>
             <organizationUrl>https://apuntesdejava.com</organizationUrl>
             <timezone>America/Lima</timezone>
+        </developer>
+        <developer>
+            <name>Aristides Villarreal Bravo</name>
+            <email>avbravo@gmail.com</email>
+            <organization>JMoorBD</organization>
+            <organizationUrl>https://www.linkedin.com/in/aristides-villarreal-bravo-6258543/</organizationUrl>
         </developer>
     </developers>
     <properties>
