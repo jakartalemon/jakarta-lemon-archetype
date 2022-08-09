@@ -1,0 +1,49 @@
+{
+    "style": "jsf",
+    "paths": {
+        "/customers": {
+            "type": "list",
+            "type2": "form",
+            "formBean": "customer"
+        },
+        "/customerForm": {
+            "type": "form",
+            "formBean": "customer"
+        }
+    },
+    "formBeans": {
+        "customer": {
+            "firstName": { 
+                "notNull": true,
+                "notEmpty": true,
+                "type": "String",
+                "label": "Nombres"
+            },
+            "birthDate": {
+                "type": "LocalDate",
+                "pastOrPresent": true,
+                "label": "Fecha de nacimiento"
+            },
+            "weight": {
+                "type": "float",
+                "decimalMax": 120,
+                "decimalMin": 40,
+                "label": "Peso"
+            },
+            "email": {
+                "email": true,
+                "label": {
+                    "es": "correo electrónico",
+                    "en": "e-email"
+                }
+            },
+            "dni": {
+                "digits": {
+                    "integer": 8,
+                    "fraction": 0
+                },
+                "label": "DNI"
+            }
+        }
+    }
+}
