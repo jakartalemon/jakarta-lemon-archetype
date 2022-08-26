@@ -4,16 +4,18 @@
         "/customers": {
             "type": "list",
             "type2": "form",
-            "formBean": "customer"
+            "formBean": "customer",
+            "editForm": "/customerForm"
         },
         "/customerForm": {
             "type": "form",
-            "formBean": "customer"
+            "formBean": "customer",
+            "listView": "/customers"
         }
     },
     "formBeans": {
         "customer": {
-            "firstName": { 
+            "firstName": {
                 "notNull": true,
                 "notEmpty": true,
                 "type": "String",
@@ -41,6 +43,10 @@
                 "digits": {
                     "integer": 8,
                     "fraction": 0
+                },
+                "size": {
+                    "max": 8,
+                    "min": 8
                 },
                 "label": "DNI"
             }
