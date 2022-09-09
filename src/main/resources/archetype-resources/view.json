@@ -15,7 +15,7 @@
     },
     "formBeans": {
         "customer": {
-            "firstName": {
+            "firstName": { 
                 "notNull": true,
                 "notEmpty": true,
                 "type": "String",
@@ -48,7 +48,8 @@
                     "max": 8,
                     "min": 8
                 },
-                "label": "DNI"
+                "label": "DNI",
+                "primary": true
             }
         }
     }
