@@ -1,0 +1,144 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Deployed Resources",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http:/myhost:8080/example-project",
+            "description": "Default Server."
+        },
+        {
+            "url": "https:/myhost:8181/example-project",
+            "description": "Default Secured Server."
+        }
+    ],
+    "paths": {
+        "/api/customer": {
+            "post": {
+                "summary": "a summary",
+                "description": "a description",
+                "operationId": "create",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CustomerRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": "Default Response."
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/employee": {
+            "get": {
+                "summary": "a summary",
+                "description": "a description",
+                "operationId": "list",
+                "responses": {
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/EmployeeResponse"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Employee list"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/employee/{id}": {
+            "get": {
+                "summary": "a summary",
+                "description": "a description",
+                "operationId": "aEmployee",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EmployeeResponse"
+                                }
+                            }
+                        },
+                        "description": "a Employee Info"
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CustomerRequest": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    }
+                }
+            },
+            "EmployeeResponse": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "employeeId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "CustomerResponse": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "customerId": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

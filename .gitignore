@@ -48,3 +48,12 @@ Thumbs.db
 *.mov
 *.wmv
 
+.idea
+.target
+/target/
+/nb-configuration.xml
+**/.settings
+**/.project
+.vscode/settings.json
+.gradle
+/.vscode/
