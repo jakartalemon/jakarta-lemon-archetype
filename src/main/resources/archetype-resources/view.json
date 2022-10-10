@@ -15,7 +15,7 @@
     },
     "formBeans": {
         "customer": {
-            "firstName": { 
+            "firstName": {
                 "notNull": true,
                 "notEmpty": true,
                 "type": "String",
@@ -28,8 +28,12 @@
             },
             "weight": {
                 "type": "float",
-                "decimalMax": 120,
-                "decimalMin": 40,
+                "decimalMax": {
+                    "value": 120
+                },
+                "decimalMin": {
+                    "value": 40
+                },
                 "label": "Peso"
             },
             "email": {
@@ -45,7 +49,7 @@
                     "fraction": 0
                 },
                 "size": {
-                    "max": 8,
+                    "max": 7,
                     "min": 8
                 },
                 "label": "DNI",
