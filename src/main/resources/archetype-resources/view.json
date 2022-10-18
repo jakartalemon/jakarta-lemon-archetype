@@ -16,7 +16,9 @@
     "formBeans": {
         "customer": {
             "firstName": {
-                "notNull": true,
+                "notNull": {
+                    "message":"Este campo no puede ser nulo"
+                },
                 "notEmpty": true,
                 "type": "String",
                 "label": "Nombres"
