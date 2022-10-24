@@ -45,7 +45,7 @@
             <plugin>
                 <groupId>dev.jakartalemon</groupId>
                 <artifactId>jakarta-lemon-plugin</artifactId>
-                <version>1.0-Beta</version>
+                <version>0.2-SNAPSHOT</version>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
