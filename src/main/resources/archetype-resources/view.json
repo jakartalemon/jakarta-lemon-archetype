@@ -51,7 +51,7 @@
                     "fraction": 0
                 },
                 "size": {
-                    "max": 7,
+                    "max": 10,
                     "min": 8
                 },
                 "label": "DNI",

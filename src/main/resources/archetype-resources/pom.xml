@@ -45,7 +45,7 @@
             <plugin>
                 <groupId>dev.jakartalemon</groupId>
                 <artifactId>jakarta-lemon-plugin</artifactId>
-                <version>0.2-SNAPSHOT</version>
+                <version>0.2</version>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -71,6 +71,6 @@
         <jakarta.jakartaee-api.version>9.1.0</jakarta.jakartaee-api.version>
         <microprofile.version>4.1</microprofile.version>
         <mockito-core.version>4.8.0</mockito-core.version>
-        <junit-jupiter.version>5.9.0</junit-jupiter.version>
+        <junit-jupiter.version>5.9.1</junit-jupiter.version>
     </properties>
 </project>
