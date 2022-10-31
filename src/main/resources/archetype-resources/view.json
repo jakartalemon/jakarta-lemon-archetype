@@ -15,8 +15,10 @@
     },
     "formBeans": {
         "customer": {
-            "firstName": { 
-                "notNull": true,
+            "firstName": {
+                "notNull": {
+                    "message":"Este campo no puede ser nulo"
+                },
                 "notEmpty": true,
                 "type": "String",
                 "label": "Nombres"
@@ -28,8 +30,12 @@
             },
             "weight": {
                 "type": "float",
-                "decimalMax": 120,
-                "decimalMin": 40,
+                "decimalMax": {
+                    "value": 120
+                },
+                "decimalMin": {
+                    "value": 40
+                },
                 "label": "Peso"
             },
             "email": {
@@ -45,7 +51,7 @@
                     "fraction": 0
                 },
                 "size": {
-                    "max": 8,
+                    "max": 10,
                     "min": 8
                 },
                 "label": "DNI",
