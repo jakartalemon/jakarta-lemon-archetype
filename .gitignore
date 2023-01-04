@@ -57,3 +57,4 @@ Thumbs.db
 .vscode/settings.json
 .gradle
 /.vscode/
+/nbactions.xml
