@@ -26,12 +26,6 @@
             <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mockito-core.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
     <build>
         <finalName>${artifactId}</finalName>
@@ -39,7 +33,7 @@
             <plugin>
                 <groupId>dev.jakartalemon</groupId>
                 <artifactId>jakarta-lemon-plugin</artifactId>
-                <version>1.2</version>
+                <version>1.4-SNAPSHOT</version>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -62,8 +56,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jakarta.jakartaee-api.version>10.0.0</jakarta.jakartaee-api.version>
-        <microprofile.version>5.0</microprofile.version>
-        <mockito-core.version>4.11.0</mockito-core.version>
-        <junit-jupiter.version>5.9.1</junit-jupiter.version>
+        <microprofile.version>6.0</microprofile.version>
+        <junit-jupiter.version>5.9.2</junit-jupiter.version>
     </properties>
 </project>

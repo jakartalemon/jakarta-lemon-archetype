@@ -1,62 +1,105 @@
 {
-    "style": "jsf",
-    "paths": {
-        "/customers": {
-            "type": "list",
-            "type2": "form",
-            "formBean": "customer",
-            "editForm": "/customerForm"
-        },
-        "/customerForm": {
-            "type": "form",
-            "formBean": "customer",
-            "listView": "/customers"
-        }
+  "style": "jsf",
+  "paths": {
+    "/customers": {
+      "type": "list",
+      "type2": "form",
+      "formBean": "customer",
+      "editForm": "/customerForm"
     },
-    "formBeans": {
-        "customer": {
-            "firstName": {
-                "notNull": {
-                    "message":"Este campo no puede ser nulo"
-                },
-                "notEmpty": true,
-                "type": "String",
-                "label": "Nombres"
-            },
-            "birthDate": {
-                "type": "LocalDate",
-                "pastOrPresent": true,
-                "label": "Fecha de nacimiento"
-            },
-            "weight": {
-                "type": "float",
-                "decimalMax": {
-                    "value": 120
-                },
-                "decimalMin": {
-                    "value": 40
-                },
-                "label": "Peso"
-            },
-            "email": {
-                "email": true,
-                "label": {
-                    "es": "correo electrónico",
-                    "en": "e-email"
-                }
-            },
-            "dni": {
-                "digits": {
-                    "integer": 8,
-                    "fraction": 0
-                },
-                "size": {
-                    "max": 10,
-                    "min": 8
-                },
-                "label": "DNI",
-                "primary": true
-            }
-        }
+    "/customerForm": {
+      "type": "form",
+      "formBean": "customer",
+      "listView": "/customers"
     }
+  },
+  "formBeans": {
+    "customer": {
+      "firstName": {
+        "notNull": {
+          "message": "Este campo no puede ser nulo"
+        },
+        "notEmpty": true,
+        "type": "String",
+        "label": "Nombres"
+      },
+      "birthDate": {
+        "type": "LocalDate",
+        "pastOrPresent": true,
+        "label": "Fecha de nacimiento"
+      },
+      "weight": {
+        "type": "float",
+        "decimalMax": {
+          "value": 120
+        },
+        "decimalMin": {
+          "value": 40
+        },
+        "label": "Peso"
+      },
+      "email": {
+        "email": true,
+        "label": {
+          "es": "correo electrónico",
+          "en": "e-email"
+        }
+      },
+      "dni": {
+        "digits": {
+          "integer": 8,
+          "fraction": 0
+        },
+        "size": {
+          "max": 10,
+          "min": 8
+        },
+        "label": "DNI",
+        "primary": true
+      },
+      "enabled": {
+        "label": "Activo",
+        "type": "boolean"
+      },
+      "gender": {
+        "type": "String",
+        "options": [
+          "female",
+          "male"
+        ],
+        "label": "Género",
+        "optionsType0": "radio",
+        "optionsType1": "select",
+        "optionsType": "select"
+      },
+      "grade": {
+        "type": "String",
+        "options": {
+          "E": "Elementary",
+          "H": "High school"
+        },
+        "label": "Grado"
+      },
+      "interests": {
+        "type": "String",
+        "options": {
+          "S": "Sport",
+          "C": "Computing",
+          "R": "Reading"
+        },
+        "optionsType": "select",
+        "multi": true,
+        "label": "Intereses"
+      }
+    },
+    "profession": {
+      "professionId": {
+        "label": "Cod Profesión",
+        "primary": true
+      },
+      "profesionName": {
+        "label": "Profesión"
+      }
+    }
+  }
 }
